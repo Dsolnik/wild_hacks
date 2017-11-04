@@ -1,0 +1,104 @@
+html, body{
+
+}
+
+/* Navigation */
+
+nav {
+  vertical-align: top;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  margin-top: 30px;
+  text-align: center;
+  font-family: 'Source Sans Pro';
+}
+  nav div.cloud {
+    height: 80px;
+    width: auto;
+    margin-bottom: 10px;
+    background: url('cloud.png') no-repeat;
+    background-position: center;
+    background-size: contain;
+  }
+    nav div.cloud:hover, nav div.cloud:active {
+      background: url('cloud-hover.png') no-repeat;
+      background-position: center;
+      background-size: contain;
+    }
+   nav div.current{
+     height: 80px;
+     width: auto;
+     margin-bottom: 10px;
+     background: url('cloud-hover.png') no-repeat;
+     background-position: center;
+     background-size: contain;
+   }
+  nav a {
+    color: #FCDCDB;
+    text-decoration:none;
+    font-size: 16px;
+  }
+    nav a:hover, nav a:active{
+      color: #FF9491;
+    }
+    nav a#current {
+      color: #FF9491;
+    }
+  nav ul {
+    margin: 0;
+    padding: 0;
+  }
+    nav ul li {
+      display: inline-block;
+      margin-right: 10px;
+      margin-left: 10px;
+    }
+
+/* Content */
+
+div.home {
+  margin-top: 45px;
+}
+  div.home img {
+    width: 100%;
+  }
+
+div.content{
+  text-align: left;
+  margin-bottom: 20px;
+}
+  div.content p {
+    margin: 20px 15px 5px;
+    font-family: 'Source Sans Pro';
+    color: #FF9491;
+    font-size: 16px;
+    line-height: 22px;
+    text-align: left;
+    display: inline-block;
+  }
+  div.content p.about {
+    line-height: 32px;
+  }
+
+div.photo {
+    text-align: center;
+    padding: 0px 15px 30px;
+}
+  div.photo img {
+      width: 100%;
+  }
+
+section.graphic-head {
+  margin-top: 30px;
+  text-align: center;
+}
+@media (min-width: 992px) {
+    section.graphic-head {
+        text-align: left;
+        margin-left: 10px;
+    }
+}
+  section.graphic-head img {
+    width: 285px;
+  }
