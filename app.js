@@ -1,6 +1,9 @@
 /*jshint node: true */
 var express = require('express');
 var bodyParser = require('body-parser');
+var cookieParser = require('cookie-parser');
+var passport = require('passport');
+var session = require('express-session');
 
 var app = express();
 
@@ -9,8 +12,9 @@ var authRouter = require('./src/routes/authRouters')();
 var port = process.env.PORT || 5000;
 
 // parse body into app.body 
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded());
+
 
 // views
 app.set('views', './src/views');

@@ -9,6 +9,7 @@ var router = function() {
         .post(function(req, res){
             console.log(req.body); 
             // put in checking the user here
+            res.end();
         });
     
     return authRouter;
