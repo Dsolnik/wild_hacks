@@ -4,14 +4,13 @@ var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
 var passport = require('passport');
 var session = require('express-session');
-var wagner  = require('wagner-core');
 
-require('./src/models/models.js')(wagner);
+require('./src/models/models.js');
 
 var app = express();
 
 // routers
-var authRouter = require('./src/routes/authRouters')(wagner);
+var authRouter = require('./src/routes/authRouters')();
 var port = process.env.PORT || 5000;
 
 // parse body into app.body 
