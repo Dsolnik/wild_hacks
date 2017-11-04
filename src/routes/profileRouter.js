@@ -6,10 +6,10 @@ var status = require('http-status');
 var profileRouter = express.Router();
 var groupRouter = require('groupRouter');
 
-profileRouter.use('/group', groupRouter);
-
 module.exports = function () {
     
+    profileRouter.use('/group', groupRouter);
+
     profileRouter.get('/dashboard', function(req, res){
         // change to 'dashboard'
         res.render('login');
