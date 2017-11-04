@@ -4,6 +4,8 @@ var express = require('express');
 var authRouter = express.Router();
 var passport = require('passport');
 var models = require('../models/models');
+var dbScripts = require('../config/dbScripts');
+
 var router = function () {
 
     authRouter.route('/logIn')
@@ -14,12 +16,16 @@ var router = function () {
     authRouter.route('/signUp')
         .post(function (req, res) {
             // insert the user into the database HERE
+            var now = new Date;
             var user = {
                 info: {
                     name: req.body.userName,
                     email: req.body.email,
                     password: req.body.password
-                }
+                },
+                start_date: now,
+                current_date: now,
+                record : dbScripts.genCal(now.getDate(),now.getMonth())  
             };
 
 //            console.log('SIGNING UP -----', user);
