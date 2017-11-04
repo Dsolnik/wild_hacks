@@ -23,9 +23,11 @@ function genCal(start, thisMonth) {
 };
 
 
+
 scripts = {
     genCal: genCal,
-    monthLen: monthLen,
+    monthLen: monthLen
+    //activeToday: activeToday
 }
 
 module.exports = scripts;
