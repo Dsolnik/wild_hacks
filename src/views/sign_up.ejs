@@ -5,7 +5,7 @@
   <title>  </title>
   <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, maximum-scale=1.0">
   <link rel="icon" href="favicon.ico">
-  <link href="styles.css" rel="stylesheet">
+  <link href="style.css" rel="stylesheet">
   <link href="bootstrap.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
 
@@ -13,27 +13,44 @@
 
 <body>
   <nav>
-
+    <ul>
+        <li style="text-align:left;"><a href="index.html">APP NAME</a></li>
+        <li style="float:right;"><a href="sign_up.html">Sign In / Sign up</a></li>
+    </ul>
+    <hr>
   </nav>
 
-  <form name = "signUpForm"
-        action = "/auth/signUp"
-        method = "post">
-    <div class="input-group">
-      <input type="text" name="firstName" placeholder="First name">
-      <input type="text" name="lastName" placeholder="Last name">
-    </div>
-    <div class="form-group">
-      <label for="exampleInputEmail1">youremail@example.com</label>
-      <input type="email" name = "email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-      <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-    </div>
-    <div class="form-group">
-      <label for="exampleInputPassword1">Password</label>
-      <input type="password" name = "password" class="form-control" id="exampleInputPassword1" placeholder="Password" >
-    </div>
-    <button type="submit" class="btn btn-primary">Sign Up</button>
-  </form>
+  <div class="container">
+
+    <form name = "signUpForm"
+          action = "/auth/signUp"
+          method = "post">
+      <div class="row justify-content-md-center">
+        <div class="form-group col-xs-6">
+          <label for="firstName">First Name</label>
+          <input name="firstName" type="text" class="form-control" required="true" placeholder="First name">
+        </div>
+        <div class="form-group col-xs-6">
+          <label for="lastName">Last Name</label>
+          <input name="lastName" class="form-control" type="text" required="true" placeholder="Last name">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="userName">Username</label>
+        <input name="userName" type="text" class="form-control" required="true" placeholder="User Name">
+      </div>
+        <div class="form-group">
+          <label for="exampleInputEmail1">Email</label>
+          <input name="email" type="email" class="form-control" required="true" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="your_email@example.com">
+          <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">Password</label>
+          <input name="password" type="password" class="form-control" required="true" id="exampleInputPassword1" placeholder="Password">
+        </div>
+      <button type="submit" class="btn btn-primary">Sign Up</button>
+    </form>
+  </div>
 
 </body>
 </html>
