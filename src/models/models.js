@@ -3,7 +3,7 @@ var _ = require('underscore');
 
 module.exports = function(wagner) {
     //connects to MongoDB database on the mongoose instance
-    mongoose.connect('mongodb://localhost:27017/CatHaxDB')
+    mongoose.connect('mongodb://localhost:27017/CatHaxDB');
 
     // registers the db connection with wagner dependencies
     //so that it can be accessed elsewhere
