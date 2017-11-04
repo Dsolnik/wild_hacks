@@ -8,16 +8,25 @@ var router = function (models) {
 
     authRouter.route('/signUp')
         .post(function (req, res) {
-            console.log('signup here', req.body);
             // insert the user into the database HERE
-            var user = new models.User({
-                name: req.body.name,
-                email: req.body.email
+            var user = {
+                info : {
+                    name : req.body.name,
+                    email : req.body.email
+                }
+            };
+    
+            console.log('SIGNING UP -----', user);
+        
+            var user_model = new models.User(user);
+        
+            user_model.save(function(err){
+                console.log("ERROR!");
+                console.log(err);
             });
-            user.save();
             console.log("Saved User!");
             // replace req.body with the object of the user
-            req.login(user, function () {
+            req.login(user_model, function () {
                 res.redirect('/auth/dashboard');
             });
             // put in checking the user here
