@@ -70,9 +70,9 @@ div.form {
     display:none;
 }
 
-#newGroup {
+/*#newGroup {
   display: none;
-}
+}*/
 
 div a:hover, div a:active {
   cursor:pointer;
