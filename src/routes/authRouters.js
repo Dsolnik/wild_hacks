@@ -3,7 +3,7 @@
 var express = require('express');
 var authRouter = express.Router();
 var passport = require('passport');
-
+var models = require('../models/models');
 
 var router = function () {
 
@@ -11,12 +11,13 @@ var router = function () {
         .post(function (req, res) {
             console.log('signup here', req.body);
             // insert the user into the database HERE
-//            var user = new User();
-            user.name = req.body.name;
-            user.email = req.body.email;
+            var user = new models.User({
+                name : req.body.name,
+                email : req.body.email
+            });
             user.save();
             // replace req.body with the object of the user
-            req.login(req.body, function () {
+            req.login(user, function () {
                 res.redirect('/auth/dashboard');
             });
             // put in checking the user here
