@@ -8,8 +8,16 @@ var router = function() {
     authRouter.route('/signUp')
         .post(function(req, res){
             console.log(req.body); 
-            // put in checking the user here
+            req.login(req.body, function(){
+                res.redirect('/auth/profile');
+            });
+        // put in checking the user here
             res.end();
+        });
+    
+    authRouter.route('/profile')
+        .get(function(req, res){
+            res.json(req.user);
         });
     
     return authRouter;
