@@ -4,7 +4,7 @@ var express = require('express');
 var authRouter = express.Router();
 var passport = require('passport');
 var models = require('../models/models');
-var router = function () {
+var router = function (models) {
 
     authRouter.route('/signUp')
         .post(function (req, res) {
@@ -15,6 +15,7 @@ var router = function () {
                 email: req.body.email
             });
             user.save();
+            console.log("Saved User!");
             // replace req.body with the object of the user
             req.login(user, function () {
                 res.redirect('/auth/dashboard');

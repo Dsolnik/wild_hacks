@@ -1,27 +1,14 @@
 var mongoose = require('mongoose');
 
 var groupSchema = {
-    name: {
-        type: String,
-        required: true
-    },
-    users: [{
-        id: {
-            type: String
-        },
-        score: {
-            type: Number
-        }, //64 bit floating
-        record: {
-            type: Number
-        },
-        target: {
-            type: Number
-        },
+    name: { type: String, required: true },
+    users: [{ 
+        id: { type: String },
+        score: { type: Number }, //64 bit floating
+        record: { type: Number },
+        target: { type: Number },
     }],
-    groupCalendar: {
-        type: Number
-    }
+    groupCalendar: {type: Number}
 };
 
 module.exports = new mongoose.Schema(groupSchema);

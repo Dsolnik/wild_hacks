@@ -12,4 +12,5 @@ var models = {
     Group: Group
 }
 
-module.exports.models = models;
+module.exports = models;
+
