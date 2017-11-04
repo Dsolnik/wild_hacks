@@ -22,9 +22,10 @@ function genCal(start, thisMonth) {
     return monthCal;
 };
 
+
 scripts = {
     genCal: genCal,
-    monthLen: monthLen
-};
+    monthLen: monthLen,
+}
 
 module.exports = scripts;
