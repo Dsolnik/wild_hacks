@@ -1,19 +1,31 @@
+/*jshint node: true */
 var express = require('express');
+var bodyParser = require('body-parser');
+var cookieParser = require('cookie-parser')
 
 var app = express();
 
+// routers
+var authRouter = require('./src/routes/authRouters')();
 var port = process.env.PORT || 5000;
 
-app.set('views', './src/views');
+// parse body into app.body 
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded());
 
+// views
+app.set('views', './src/views');
 app.set('view engine', 'ejs');
 
-
+// default directory
 app.use(express.static('public'));
 
-app.get('/', function(req, res){
+// set routers 
+app.use('/Auth', authRouter);
 
-})
+app.get('/', function(req, res){
+    res.send('We\'re working on it!');
+});
 
 app.listen(port, function (err) {
     console.log('running server on port ' + port);
