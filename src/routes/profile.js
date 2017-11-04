@@ -2,14 +2,15 @@
 var express = require('express');
 var models = require('../models/models');
 var status = require('http-status');
-var bodyparser = require('body-parser');
 
 var profileRouter = express.Router();
-profileRouter.use(bodyparser.json());
+var groupRouter = require('groupRouter');
+
+profileRouter.use('/group', groupRouter);
 
 profileRouter.get('/dashboard', function(req, res){
     // change to 'dashboard'
-    return res.render('login')
+    return res.render('dashboard');
 });
 
-module.exports = profileRouter
+module.exports = profileRouter;

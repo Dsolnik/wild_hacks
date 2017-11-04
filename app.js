@@ -9,7 +9,7 @@ var app = express();
 
 // routers
 var authRouter = require('./src/routes/authRouters')();
-var profile        = require('./src/routes/profile')();
+var profile = require('./src/routes/profile')();
 var port = process.env.PORT || 5000;
 
 // parse body into app.body 
