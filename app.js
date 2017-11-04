@@ -42,15 +42,12 @@ app.use(express.static('public'));
 app.use('/Auth', authRouter);
 app.use('/profile', profileRouter);
 
-app.get('/', function (req, res) {
-    if (!req.user) {
-        res.redirect('/auth/logIn')
+app.use(function(req, res, next){
+    if(!req.user) res.redirect('/auth/login');
+    else{
+        next();
     }
-    else {
-        //send to homepage if signed in
-        res.redirect('/profile/dashboard');
-    }
-});
+})
 
 app.listen(port, function (err) {
     console.log('running server on port ' + port);
