@@ -15,5 +15,10 @@ module.exports = function () {
         res.render('login');
     });
 
+    profileRouter.get('/settings', function(req, res){
+        //change to 'settings'
+        res.render('login');
+    })
+
     return profileRouter
 };
