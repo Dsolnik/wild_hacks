@@ -1,4 +1,5 @@
 var mongoose = require('mongoose');
+var scripts  = require('../config/dbScripts');
 
 var userSchema = {
     info: {
