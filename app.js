@@ -9,7 +9,7 @@ var app = express();
 
 // routers
 var authRouter = require('./src/routes/authRouters')();
-var profile = require('./src/routes/profile')();
+var profile = require('./src/routes/profileRouter')();
 var port = process.env.PORT || 5000;
 
 // parse body into app.body 
@@ -40,7 +40,7 @@ app.use(express.static('public'));
 
 // set routers
 app.use('/Auth', authRouter);
-app.use('/profile', profile);
+app.use('/profile', profileRouter);
 
 app.get('/', function (req, res) {
     if (!res.user) {res.render('login')};
