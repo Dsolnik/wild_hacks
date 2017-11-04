@@ -35,7 +35,7 @@ app.use(express.static('public'));
 app.use('/Auth', authRouter);
 
 app.get('/', function(req, res){
-    res.render('sign_up');
+    res.render('login');
 });
 
 app.listen(port, function (err) {
