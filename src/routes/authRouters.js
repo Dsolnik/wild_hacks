@@ -11,8 +11,8 @@ var router = function () {
             console.log('signup here', req.body);
             // insert the user into the database HERE
             var user = new models.User({
-                name : req.body.name,
-                email : req.body.email
+                name: req.body.name,
+                email: req.body.email
             });
             user.save();
             // replace req.body with the object of the user
@@ -32,13 +32,13 @@ var router = function () {
         });
 
     authRouter.route('/dashboard')
-        .get(function (req, res, next){
-            if(!req.user){
+        .get(function (req, res, next) {
+            if (!req.user) {
                 res.redirect('/');
             }
             next();
-    });
-    
+        });
+
     authRouter.route('/dashboard')
         .get(function (req, res) {
             res.json(req.user);
