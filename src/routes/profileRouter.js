@@ -4,7 +4,7 @@ var models = require('../models/models');
 var status = require('http-status');
 
 var profileRouter = express.Router();
-var groupRouter = require('groupRouter');
+var groupRouter = require('./groupRouter');
 
 module.exports = function () {
     
