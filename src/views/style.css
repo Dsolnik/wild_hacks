@@ -2,6 +2,10 @@ html, body{
 
 }
 
+#signIn {
+  display : none;
+}
+
 /* Navigation */
 
 nav {
@@ -40,37 +44,15 @@ nav {
 
 /* Content */
 
-div.home {
-  margin-top: 45px;
+div.header {
+  font-size: 24px;
+  margin-bottom: 15px;
 }
-  div.home img {
-    width: 100%;
-  }
 
-div.content{
-  text-align: left;
-  margin-bottom: 20px;
-}
-  div.content p {
-    margin: 20px 15px 5px;
-    font-family: 'Source Sans Pro';
-    color: #FF9491;
-    font-size: 16px;
-    line-height: 22px;
-    text-align: left;
-    display: inline-block;
-  }
-  div.content p.about {
-    line-height: 32px;
-  }
+div.subtext {
+  font-size: 12px;
 
-div.photo {
-    text-align: center;
-    padding: 0px 15px 30px;
 }
-  div.photo img {
-      width: 100%;
-  }
 
 div.form {
   padding: 0 50px;
