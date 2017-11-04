@@ -13,8 +13,14 @@ var port = process.env.PORT || 5000;
 
 // parse body into app.body 
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
+app.use(bodyParser.json({ type: 'application/*+json' }));
 
+// cookie parser and session middleware setup
+app.use(cookieParser());
+app.use(session({secret : 'workout'}));
+
+// set up passport and do passport stuff
+require('./src/config/passport')(app);
 
 // views
 app.set('views', './src/views');
@@ -27,7 +33,7 @@ app.use(express.static('public'));
 app.use('/Auth', authRouter);
 
 app.get('/', function(req, res){
-    res.send('We\'re working on it!');
+    res.render('sign_up');
 });
 
 app.listen(port, function (err) {
