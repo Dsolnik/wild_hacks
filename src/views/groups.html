@@ -13,32 +13,81 @@
 
 <body>
   <div class="icon-bar">
-    <div class="hello">Hello, Helen!</div>
-    <a href="dashboard.html">Home</a>
-    <a href="groups.html">Groups</a>
-    <a href="settings.html"><img class="icons" src="../../public/photos/settings.png">Settings</a>
-    <a href="#"></i></a>
+      <div class="hello">Hello, Helen!</div>
+      <a href="dashboard.html">Home</a>
+      <a href="groups.html">Groups</a>
+      <a href="settings.html"><img class="icons" src="../../public/photos/settings.png">Settings</a>
+      <a href="#"></i></a>
   </div>
 
-  <div class="container">
+  <div class="row">
     <div class="within_dash">
 
     <!-- Form -->
       <div class="subhead">
-        <a id="create_newGroup">Create Group</a>
+        Create Group <a id="create_newGroup"> + </a>
       </div>
 
       <div id="newGroup">
         <form name = "newGroup" >
           <div class="row justify-content-md-center">
-            <div class="form-group col-xs-6">
+            <div class="form-group col-sm-6">
               <label for="groupName">Group Name</label>
               <input name="groupName" type="text" class="form-control" required="true" placeholder="Group name">
+            </div>
+          </div>
+          <div class="row justify-content-md-center">
+            <div class="form-group col-sm-6">
+              <label for="secretPassword">Group Password</label>
+              <input name="groupName" type="text" class="form-control" required="true" placeholder="Secret password">
+            </div>
+          </div>
+          <div class="row justify-content-md-center">
+            <div class="form-group col-sm-6">
+              <label for="goal">Your Goal</label>
+              <input name="groupName" type="text" class="form-control" aria-describedby="goalHelp" required="true" placeholder="5">
+              <small id="goalHelp" class="form-text text-muted">Number of times per week you're aiming for.</small>
+            </div>
+          </div>
+          <div class="row justify-content-md-center">
+            <div class="form-group col-sm-6">
+              <label for="goal">Duration</label>
+              <input name="groupName" type="text" class="form-control" aria-describedby="durationHelp" required="true" placeholder="4">
+              <small id="durationHelp" class="form-text text-muted">Number of week you're planning to keep this up.</small>
             </div>
           </div>
           <button type="submit" class="btn btn-primary">Create Group</button>
         </form>
       </div>
+
+      <div class="header" style="margin-top:50px;">
+        My Groups
+      </div>
+      <!-- One Group -->
+      <div class="col-sm-4">
+        <div class="box">
+          <div class="photo">
+            <img src="../../public/photos/placeholder.jpg">
+          </div>
+          <hr>
+          <div class="text">
+            <a href="">Group1</a>
+          </div>
+        </div>
+      </div>
+      <!-- Repeat code for as many groups individual is in -->
+      <div class="col-sm-4">
+        <div class="box">
+          <div class="photo">
+            <img src="../../public/photos/placeholder.jpg">
+          </div>
+          <hr>
+          <div class="text">
+            <a href="">Group1</a>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 
