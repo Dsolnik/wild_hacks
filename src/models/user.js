@@ -6,7 +6,7 @@ var userSchema = {
         email: { type: String },
         password: { type: String},
         start_date: { type: String},
-        record: [[{ type: Number }]]
+        record: [ {type: Object} ]
         // more later? ie payment info
     },
     groups: [{
