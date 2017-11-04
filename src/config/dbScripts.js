@@ -22,9 +22,13 @@ function genCal(start, thisMonth) {
     return monthCal;
 };
 
+//sets current day as active (1 in record)
+function activeToday
+
 scripts = {
     genCal: genCal,
-    monthLen: monthLen
+    monthLen: monthLen,
+    activeToday: activeToday
 }
 
 module.exports = scripts

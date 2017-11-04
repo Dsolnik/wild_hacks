@@ -12,6 +12,6 @@ module.exports = new mongoose.Schema({
     current_date: { type: Date},
     record: [{ type: Number }],
     groups: [{
-        id: { type: Number }
+        _id: { type: Number }
     }]
 });
