@@ -17,7 +17,7 @@ app.use(bodyParser.json({ type: 'application/*+json' }));
 
 // cookie parser and session middleware setup
 app.use(cookieParser());
-app.use(session({secret : 'workout'}));
+app.use(session({secret : 'workout', resave: false, saveUninitialized: false}));
 
 // set up passport and do passport stuff
 require('./src/config/passport')(app);
