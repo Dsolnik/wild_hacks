@@ -9,6 +9,7 @@ var app = express();
 
 // routers
 var authRouter = require('./src/routes/authRouters')();
+var api        = require('./src/routes/api')();
 var port = process.env.PORT || 5000;
 
 // parse body into app.body 
@@ -39,9 +40,12 @@ app.use(express.static('public'));
 
 // set routers
 app.use('/Auth', authRouter);
+app.use('/profile', profile);
 
 app.get('/', function (req, res) {
-    res.render('login');
+    if (!res.user) {res.render('login')};
+    //send to homepage if signed in
+    res.redirect('/profile/dashboard')
 });
 
 app.listen(port, function (err) {
