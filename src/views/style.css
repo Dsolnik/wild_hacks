@@ -9,51 +9,34 @@ nav {
   margin-left: auto;
   margin-right: auto;
   width: 100%;
-  margin-top: 30px;
-  text-align: center;
   font-family: 'Source Sans Pro';
 }
-  nav div.cloud {
-    height: 80px;
-    width: auto;
-    margin-bottom: 10px;
-    background: url('cloud.png') no-repeat;
-    background-position: center;
-    background-size: contain;
-  }
-    nav div.cloud:hover, nav div.cloud:active {
-      background: url('cloud-hover.png') no-repeat;
-      background-position: center;
-      background-size: contain;
-    }
-   nav div.current{
-     height: 80px;
-     width: auto;
-     margin-bottom: 10px;
-     background: url('cloud-hover.png') no-repeat;
-     background-position: center;
-     background-size: contain;
-   }
+
   nav a {
-    color: #FCDCDB;
-    text-decoration:none;
+    color: #A9A9A9;
+    text-decoration: none;
     font-size: 16px;
   }
     nav a:hover, nav a:active{
-      color: #FF9491;
+      text-decoration: none;
+      color: #377BB5;
     }
-    nav a#current {
-      color: #FF9491;
-    }
+
   nav ul {
     margin: 0;
-    padding: 0;
+    padding: 15px 15px 0;
   }
     nav ul li {
       display: inline-block;
       margin-right: 10px;
       margin-left: 10px;
     }
+
+  nav hr {
+      height: 3px;
+      margin-top: 15px;
+    }
+
 
 /* Content */
 
@@ -89,16 +72,6 @@ div.photo {
       width: 100%;
   }
 
-section.graphic-head {
-  margin-top: 30px;
-  text-align: center;
+div.form {
+  padding: 0 50px;
 }
-@media (min-width: 992px) {
-    section.graphic-head {
-        text-align: left;
-        margin-left: 10px;
-    }
-}
-  section.graphic-head img {
-    width: 285px;
-  }
