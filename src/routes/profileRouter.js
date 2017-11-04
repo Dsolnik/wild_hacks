@@ -11,14 +11,12 @@ module.exports = function () {
     profileRouter.use('/group', groupRouter);
 
     profileRouter.get('/dashboard', function(req, res){
-        // change to 'dashboard'
-        res.render('login');
+        res.render('dashboard');
     });
-
+    /*
     profileRouter.get('/settings', function(req, res){
-        //change to 'settings'
-        res.render('login');
+        res.render('settings');
     })
-
+    */
     return profileRouter
 };

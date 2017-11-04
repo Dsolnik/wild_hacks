@@ -32,7 +32,7 @@ var router = function () {
                     console.log("Saved User!");
                     // replace req.body with the object of the user
                     req.login(user_model, function () {
-                        res.redirect('/auth/dashboard');
+                        res.redirect('/profile/dashboard');
                     });
                     // put in checking the user here
                     res.end();
