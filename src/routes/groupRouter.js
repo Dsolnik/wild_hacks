@@ -8,18 +8,18 @@ function generateGroup(initial_record) {
     var group_initial = [];
     // new_initial has -1 if it's not a month or a list of user_names
     for (var i = 0; i < initial_record.length; i++) {
-        group_initial.append([]);
+        group_initial.push([]);
         for (var j = 0; j < initial_record[0].length; i++) {
             var to_append = (initial_record[i][j] == -1) ? -1 : [];
-            group_initial[i].append(to_append);
+            group_initial[i].push(to_append);
         }
     }
     return group_initial;
 }
 
 function generateIntitalNow() {
-    var today = new Date
-    return dbScripts(today.getDay(), Date.getMonth());
+    var today = new Date();
+    return dbScripts.genCal(today.getDay(), today.getMonth());
 }
 
 var router = function () {
@@ -49,31 +49,33 @@ var router = function () {
     });
 
     groupRouter.post('/createGroup', function (req, res) {
+//        console.log("user is", req.user);
         var initial_record = generateIntitalNow();
         var group_initial = generateGroup(initial_record);
         var group = {
-            target: req.target,
-            name: req.params.groupName,
-            users: [req.user.name, req.user._id, 0, initial_record],
+            target: req.body.target,
+            name: req.body.groupName,
+            users: [[req.user.info.name, req.user._id, 0, initial_record]],
             group_calendar: group_initial,
-            secret: req.params.secret,
-            duration: req.params.duration
+            secret: req.body.secret,
+            duration: req.body.duration
         };
-        console.log("GOT HERE1!");
+//        console.log("GOT HERE1!");
+//        console.log("The elemnt is", group);
         var group_model = new models.Group(group);
         group_model.save(function (err, result) {
-            console.log("GOT HERE2!");
+//            console.log("GOT HERE2!");
             if (err) console.log("CREATE_GROUP", err);
             else {
-                var redirect_url = '/' + result._id;
+                var redirect_url = '/profile/group/' + result._id;
                 res.redirect(redirect_url);
             }
         });
     });
 
 //    groupRouter.post('/joinGroup', function (req, res) {
-//        var group_id = req.params.groupID;
-//        var secret_att = req.params.secret;
+//        var group_id = req.body.groupID;
+//        var secret_att = req.body.secret;
 //        models.Group.findOne({
 //            _id: group_id,
 //            secret: secret_att
@@ -87,7 +89,7 @@ var router = function () {
 //                    score: 0,
 //                    record: initial_now
 //                };
-//                curr_group.users.append(new_user);
+//                curr_group.users.push(new_user);
 //                curr_group.update(function (err, result) {
 //                    if (err) console.log("ERROR UPDATING curr_group", err);
 //                    else {
@@ -96,7 +98,7 @@ var router = function () {
 //                        }, function (err, curr_user) {
 //                            if (err) console.log("JOIN GROUP CAN'T FIND PERSON", err);
 //                            else {
-//                                curr_user.groups.append(curr_group._id);
+//                                curr_user.groups.push(curr_group._id);
 //                                curr_user.update(function (err, result) {
 //                                    if (err) console.log("ERROR updating curr_user", err);
 //                                });
