@@ -7,7 +7,8 @@ var Group =
 var User =
     mongoose.model('User', require('./user.js'), 'users');
 
-module.exports.User = User;
-module.exports.Group = Group;
-
+var models = {
+    User : User,
+    Group : Group
+}
 module.exports = models;
