@@ -3,7 +3,9 @@ var groupRouter = express.router();
 
 var router = function () {
 
-    groupRouter.use()
+    groupRouter.get('/:id', function(req, res){
+       var groupID = req.params.id; 
+    });
     
     return groupRouter;
 }
