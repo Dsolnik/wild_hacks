@@ -10,7 +10,7 @@ var router = function () {
 
     authRouter.route('/logIn')
         .get(function (req, res) {
-            res.render('login')
+            res.render('login');
         });
 
     authRouter.route('/signUp')
@@ -28,7 +28,7 @@ var router = function () {
                 record : dbScripts.genCal(now.getDate(),now.getMonth())  
             };
 
-            console.log('SIGNING UP -----', user);
+//            console.log('SIGNING UP -----', user);
 
             var user_model = new models.User(user);
 
@@ -51,7 +51,7 @@ var router = function () {
         .post(passport.authenticate('local', {
             failureRedirect: '/'
         }), function (req, res) {
-            console.log("Sucessful Sign in!");
+//            console.log("Sucessful Sign in!");
             res.redirect('/auth/dashboard');
         });
 

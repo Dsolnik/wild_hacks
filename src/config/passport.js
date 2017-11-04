@@ -8,7 +8,7 @@ var passportFunction = function (app) {
     app.use(passport.session());
 
     passport.serializeUser(function (user, done) {
-        console.log("SERIALIZING USER:", user);
+//        console.log("SERIALIZING USER:", user);
         done(null, user._id);
     });
 

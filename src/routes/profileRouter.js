@@ -5,11 +5,10 @@ var status = require('http-status');
 var dbScripts = require('../config/dbScripts');
 
 var profileRouter = express.Router();
-//var groupRouter = require('./groupRouter');
-
+var groupRouter = require('./groupRouter')();
 module.exports = function () {
     
-    //profileRouter.use('/group', groupRouter);
+    profileRouter.use('/group', groupRouter);
 
     profileRouter.get('/dashboard', function(req, res){
         var now = new Date;

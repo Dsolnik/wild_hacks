@@ -12,7 +12,7 @@ function monthLen (monthID) {
 
 //generate calendar from start date 
 function genCal(start, thisMonth) {
-    var monthCal = new Array
+    var monthCal = new Array();
     for (var i = 1; i <= monthLen(thisMonth); i++ ){
         if (i < start) monthCal[i-1] = -1;
         // i-1 bc i is 0-indexed and start is 1-31
@@ -22,13 +22,10 @@ function genCal(start, thisMonth) {
     return monthCal;
 };
 
-//sets current day as active (1 in record)
-function activeToday
 
 scripts = {
     genCal: genCal,
     monthLen: monthLen,
-    activeToday: activeToday
 }
 
-module.exports = scripts
+module.exports = scripts;
