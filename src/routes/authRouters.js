@@ -13,7 +13,8 @@ var router = function () {
             var user = {
                 info: {
                     name: req.body.userName,
-                    email: req.body.email
+                    email: req.body.email,
+                    password: req.body.password
                 }
             };
 
@@ -45,16 +46,16 @@ var router = function () {
         });
 
     authRouter.route('/dashboard')
-        .get(function (req, res, next) {
+        .all(function (req, res, next) {
+            console.log("AUTH STEP:", req.user);
+            console.log("GOT HERE!");
             if (!req.user) {
                 res.redirect('/');
             }
             next();
-        });
-
-    authRouter.route('/dashboard')
+        })
         .get(function (req, res) {
-            res.json(req.user);
+            res.render('login');
         });
 
     return authRouter;
