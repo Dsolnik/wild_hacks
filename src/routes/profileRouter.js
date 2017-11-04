@@ -23,6 +23,9 @@ module.exports = function () {
         }
         res.render('dashboard');
     });
+
+    //route for updating current day activity
+
     /*
     profileRouter.get('/settings', function(req, res){
         res.render('settings');
