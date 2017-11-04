@@ -31,7 +31,7 @@ app.set('view engine', 'ejs');
 // default directory
 app.use(express.static('public'));
 
-// set routers 
+// set routers
 app.use('/Auth', authRouter);
 
 app.get('/', function(req, res){

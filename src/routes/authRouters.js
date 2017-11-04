@@ -5,13 +5,13 @@ var authRouter = express.Router();
 var passport = require('passport');
 
 
-var router = function (wagner) {
+var router = function () {
 
     authRouter.route('/signUp')
         .post(function (req, res) {
             console.log('signup here', req.body);
             // insert the user into the database HERE
-            var user = new wagner.User();
+            var user = new models.User();
             user.name = req.body.name;
             user.email = req.body.email;
             // replace req.body with the object of the user

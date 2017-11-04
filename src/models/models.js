@@ -1,6 +1,5 @@
 var mongoose = require('mongoose');
 
-//connects to MongoDB database on the mongoose instance
 mongoose.connect('mongodb://localhost:27017/CatHaxDB');
 
 var Group = 
