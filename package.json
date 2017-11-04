@@ -11,14 +11,12 @@
     "express-session": "^1.15.6",
     "mongoose": "^4.13.0",
     "passport": "^0.4.0",
-<<<<<<< HEAD
-    "passport-local": "^1.0.0"
-=======
+    "passport-local": "^1.0.0",
     "wagner-core": "^0.2.0"
->>>>>>> e8ff74e4aaf9ccadf0592bc003be69548c1fe990
   },
   "devDependencies": {},
   "scripts": {
+    "start": "node app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
