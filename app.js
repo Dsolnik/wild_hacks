@@ -4,6 +4,9 @@ var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
 var passport = require('passport');
 var session = require('express-session');
+var wagner  = require('wagner-core');
+
+require('src/models/models.js')(wagner);
 
 var app = express();
 
