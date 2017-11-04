@@ -1,7 +1,6 @@
 var mongoose = require('mongoose');
 
 var userSchema = {
-    _id: { type: String },
     info: {
         name: { type: String, required: true },
         email: { type: String },

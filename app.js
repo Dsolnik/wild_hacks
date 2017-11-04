@@ -5,12 +5,10 @@ var cookieParser = require('cookie-parser');
 var passport = require('passport');
 var session = require('express-session');
 
-var models = require('./src/models/models.js');
-
 var app = express();
 
 // routers
-var authRouter = require('./src/routes/authRouters')(models);
+var authRouter = require('./src/routes/authRouters')();
 var port = process.env.PORT || 5000;
 
 // parse body into app.body 

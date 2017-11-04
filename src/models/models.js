@@ -11,4 +11,5 @@ var models = {
     User : User,
     Group : Group
 }
+
 module.exports = models;
