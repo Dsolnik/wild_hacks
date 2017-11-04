@@ -10,7 +10,7 @@ profileRouter.use('/group', groupRouter);
 
 profileRouter.get('/dashboard', function(req, res){
     // change to 'dashboard'
-    return res.render('dashboard');
+    return res.render('login');
 });
 
 module.exports = profileRouter;
