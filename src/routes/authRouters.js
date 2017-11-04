@@ -1,6 +1,5 @@
 /*jshint node: true */
 
-
 var express = require('express');
 var authRouter = express.Router();
 var passport = require('passport');
