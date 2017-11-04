@@ -1,0 +1,38 @@
+<html>
+    <head>
+    </head>
+    <body>
+        <div name = "groupName">
+        </div>
+    
+        <br>
+        
+        <div name = "participants">
+        <% for(var i = 0; i < users.length; i++){%>
+            <!-- uncomment this if we decide to have a user page -->
+            <a href="#<%=users[i]._id%>"><%=users[i].name%>
+            </a>
+            <% if(i != user.length - 1){ %>,<%}%>
+        <%}%>
+        </div>
+        
+        <br>
+        <% for(var i = 0; i < users.length; i++){%>
+        <div name = "individual">
+            <a name ="user_name" href="#<%=users[i]._id%>"><%=users[i].name%>
+            <div name = "individual_calendar">
+                <h1><%=curr_month.name%></h1>
+                <table>
+                <% for(var row = 0; row < curr_month.length; row++){%>
+                    <tr>
+                        <% for(var col = 0; col < curr_month[0].length; col++){%>
+                        <th class="day<%=curr_month[row][col]%>"></th>     
+                        <%}%>
+                    </tr>
+                <% }%>
+                </table>
+            </div>
+        </div>
+        <%}%>
+    </body>
+</html>
