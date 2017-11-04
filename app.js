@@ -9,7 +9,7 @@ var app = express();
 
 // routers
 var authRouter = require('./src/routes/authRouters')();
-var profile = require('./src/routes/profileRouter')();
+var profileRouter = require('./src/routes/profileRouter')();
 var port = process.env.PORT || 5000;
 
 // parse body into app.body 
@@ -43,9 +43,13 @@ app.use('/Auth', authRouter);
 app.use('/profile', profileRouter);
 
 app.get('/', function (req, res) {
-    if (!res.user) {res.render('login')};
-    //send to homepage if signed in
-    res.redirect('/profile/dashboard')
+    if (!req.user) {
+        res.redirect('/auth/logIn')
+    }
+    else {
+        //send to homepage if signed in
+        res.redirect('/profile/dashboard');
+    }
 });
 
 app.listen(port, function (err) {

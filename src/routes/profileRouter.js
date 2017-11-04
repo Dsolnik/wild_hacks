@@ -4,13 +4,16 @@ var models = require('../models/models');
 var status = require('http-status');
 
 var profileRouter = express.Router();
-var groupRouter = require('groupRouter');
+//var groupRouter = require('groupRouter');
 
-profileRouter.use('/group', groupRouter);
+//profileRouter.use('/group', groupRouter);
 
-profileRouter.get('/dashboard', function(req, res){
-    // change to 'dashboard'
-    return res.render('login');
-});
+module.exports = function () {
 
-module.exports = profileRouter;
+    profileRouter.get('/dashboard', function(req, res){
+        // change to 'dashboard'
+        res.render('login');
+    });
+
+    return profileRouter
+};

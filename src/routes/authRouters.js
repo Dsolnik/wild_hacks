@@ -7,6 +7,11 @@ var passport = require('passport');
 var models = require('../models/models');
 var router = function () {
 
+    authRouter.route('/logIn')
+        .get(function (req, res) {
+            res.render('login')
+        });
+
     authRouter.route('/signUp')
         .post(function (req, res) {
             // insert the user into the database HERE
