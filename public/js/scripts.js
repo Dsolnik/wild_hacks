@@ -15,4 +15,11 @@ window.onload = function(){
     signIn.style.display = "none";
   });
 
+  var newGroup = document.getElementById('newGroup');
+  var create_newGroup = document.getElementById('create_newGroup');
+
+  create_newGroup.addEventListener('click', function(){
+    newGroup.style.display = "block";
+  });
+
 };
