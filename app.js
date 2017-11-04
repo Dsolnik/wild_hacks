@@ -11,7 +11,7 @@ require('./src/models/models.js')(wagner);
 var app = express();
 
 // routers
-var authRouter = require('./src/routes/authRouters')();
+var authRouter = require('./src/routes/authRouters')(wagner);
 var port = process.env.PORT || 5000;
 
 // parse body into app.body 
