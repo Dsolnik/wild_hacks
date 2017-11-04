@@ -11,7 +11,7 @@ var userSchema = {
         // more later? ie payment info
     },
     groups: [{
-        id: { type: Number }
+        _id: { type: Number }
     }]
 
 };

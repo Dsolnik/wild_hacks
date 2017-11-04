@@ -3,7 +3,7 @@ var mongoose = require('mongoose');
 var groupSchema = {
     name: { type: String, required: true },
     secret: { type: String},
-    target : { type: Number}
+    target : { type: Number },
     users: [{ 
         name: { type: String},
         _id: { type: String },

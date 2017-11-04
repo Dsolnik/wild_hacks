@@ -1,8 +1,8 @@
 /*jshint node: true */
 var express = require('express');
-var groupRouter = express.Router();
 var models = require('../models/models');
-var dbScripts = require('dbScripts.js');
+var dbScripts = require('../config/dbScripts.js');
+var groupRouter = express.Router();
 
 function generateGroup(initial_record) {
     var group_initial = [];
@@ -18,15 +18,21 @@ function generateGroup(initial_record) {
 }
 
 function generateIntitalNow() {
-    return dbScripts(Date.getDay(), Date.getMonth());
+    var today = new Date
+    return dbScripts(today.getDay(), Date.getMonth());
 }
 
-function 
 var router = function () {
 
+    groupRouter.route('/').get(function(req, res){
+        res.render('groups');
+    });
+    
     groupRouter.get('/:id', function (req, res) {
+        console.log("GOT ID");
         var group_ID = req.params.id;
-        var user_groups = req.user.groups;
+        console.log(req.user);
+//        var user_groups = req.user.groups;
         if (req.user.groups.indexOf(group_ID) == -1) {
             res.redirect('/profile/dashboard');
         } else {
@@ -50,11 +56,13 @@ var router = function () {
             name: req.params.groupName,
             users: [req.user.name, req.user._id, 0, initial_record],
             group_calendar: group_initial,
-            secret: req.params.secret
-            duration: months
+            secret: req.params.secret,
+            duration: req.params.duration
         };
+        console.log("GOT HERE1!");
         var group_model = new models.Group(group);
         group_model.save(function (err, result) {
+            console.log("GOT HERE2!");
             if (err) console.log("CREATE_GROUP", err);
             else {
                 var redirect_url = '/' + result._id;
@@ -63,44 +71,44 @@ var router = function () {
         });
     });
 
-    groupRouter.post('/joinGroup', function (req, res) {
-        var group_id = req.params.groupID;
-        var secret_att = req.params.secret;
-        models.Group.findOne({
-            _id: group_id,
-            secret: secret_att
-        }, function (err, curr_group) {
-            if (err) console.log("JOIN GROUP OUTER", err);
-            if (curr_group) {
-                var initial_now = generateIntitalNow();
-                var new_user = {
-                    name: req.user.name,
-                    _id: req.user._id,
-                    score: 0,
-                    record: initial_now
-                };
-                curr_group.users.append(new_user);
-                curr_group.update(function (err, result) {
-                    if (err) console.log("ERROR UPDATING curr_group", err);
-                    else {
-                        models.User.findOne({
-                            _id: req.user._id
-                        }, function (err, curr_user) {
-                            if (err) console.log("JOIN GROUP CAN'T FIND PERSON", err);
-                            else {
-                                curr_user.groups.append(curr_group._id);
-                                curr_user.update(function (err, result) {
-                                    if (err) console.log("ERROR updating curr_user", err);
-                                });
-                            }
-                        });
-                    }
-                });
-            } else {
-                res.redirect('/');
-            }
-        });
-    });
+//    groupRouter.post('/joinGroup', function (req, res) {
+//        var group_id = req.params.groupID;
+//        var secret_att = req.params.secret;
+//        models.Group.findOne({
+//            _id: group_id,
+//            secret: secret_att
+//        }, function (err, curr_group) {
+//            if (err) console.log("JOIN GROUP OUTER", err);
+//            if (curr_group) {
+//                var initial_now = generateIntitalNow();
+//                var new_user = {
+//                    name: req.user.name,
+//                    _id: req.user._id,
+//                    score: 0,
+//                    record: initial_now
+//                };
+//                curr_group.users.append(new_user);
+//                curr_group.update(function (err, result) {
+//                    if (err) console.log("ERROR UPDATING curr_group", err);
+//                    else {
+//                        models.User.findOne({
+//                            _id: req.user._id
+//                        }, function (err, curr_user) {
+//                            if (err) console.log("JOIN GROUP CAN'T FIND PERSON", err);
+//                            else {
+//                                curr_user.groups.append(curr_group._id);
+//                                curr_user.update(function (err, result) {
+//                                    if (err) console.log("ERROR updating curr_user", err);
+//                                });
+//                            }
+//                        });
+//                    }
+//                });
+//            } else {
+//                res.redirect('/');
+//            }
+//        });
+//    });
 
     return groupRouter;
 };

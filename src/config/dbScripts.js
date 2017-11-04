@@ -7,12 +7,12 @@ function monthLen (monthID) {
     //month is feb
     if (monthID==1) return 28;
     else if (thirty.indexOf(abbrev)>=0) return 30;
-    else return 31
+    else return 31;
 };
 
 //generate calendar from start date
 function genCal(start, thisMonth) {
-    var monthCal = new Array
+    var monthCal = new Array();
     for (var i = 1; i <= monthLen(thisMonth); i++ ){
         if (i < start) monthCal[i] = -1;
         else monthCal[i] = 0;
@@ -23,6 +23,6 @@ function genCal(start, thisMonth) {
 scripts = {
     genCal: genCal,
     monthLen: monthLen
-}
+};
 
-module.exports = scripts
+module.exports = scripts;
