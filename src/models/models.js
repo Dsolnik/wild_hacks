@@ -1,16 +1,15 @@
 var mongoose = require('mongoose');
 
-//connects to MongoDB database on the mongoose instance
 mongoose.connect('mongodb://localhost:27017/CatHaxDB');
 
-var Group = 
+var Group =
     mongoose.model('Group', require('./group.js'), 'groups');
-var User = 
+var User =
     mongoose.model('User', require('./user.js'), 'users');
 
 var models = {
-    User: User,
-    Group: Group
+    User : User,
+    Group : Group
 }
 
-module.exports.models = models;
+module.exports = models;

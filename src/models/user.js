@@ -1,11 +1,11 @@
 var mongoose = require('mongoose');
 
 var userSchema = {
-    _id: { type: String },
     info: {
         name: { type: String, required: true },
         email: { type: String },
-        oauth: { type: String, required: true }
+        password: {type: String},
+        oauth: { type: String }
         // more later? ie payment info
     },
     groups: [{
