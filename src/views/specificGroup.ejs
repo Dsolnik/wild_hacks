@@ -12,7 +12,7 @@
             <!-- uncomment this if we decide to have a user page -->
             <a href="#<%=users[i]._id%>"><%=users[i].name%>
             </a>
-            <% if(i != user.length - 1){ %>,<%}%>
+            <% if(i != users.length - 1){ %>,<%}%>
         <%}%>
         </div>
         
@@ -21,7 +21,7 @@
         <div name = "individual">
             <a name ="user_name" href="#<%=users[i]._id%>"><%=users[i].name%>
             <div name = "individual_calendar">
-                <h1><%=curr_month.month%></h1>
+                <h1>THIS YEAR</h1>
                 <table>
                 <% for(var row = 0; row < curr_month.length; row++){%>
                     <tr>

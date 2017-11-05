@@ -16,12 +16,12 @@ module.exports = function () {
                 if (err) done(err);
                 else {
                     console.log("OUR ITEM we found is", result);
-                    if (result.info.password == password) {
+                    if (result && result.info.password == password) {
                         console.log("WE SIGNED IN!");
                         var user = result;
                         done(null, user);
                     } else {
-                        done(null, false, {
+                        done(null , false, {
                             message: 'Bad Password'
                         });
                     }

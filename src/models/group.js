@@ -6,7 +6,7 @@ var groupSchema = {
     target : { type: Number },
     users: [{ 
         name: { type: String},
-        _id: { type: String },
+        id: { type: String },
         score: { type: Number }, //64 bit floating
         record: [[{ type: Number }]],
     }],
