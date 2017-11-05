@@ -57,11 +57,11 @@ div.subtext {
 }
 
 div.within_dash {
-  margin: 50px 50px 50px 150px;
+  margin: 30px 50px 30px 150px;
 }
 @media (min-width: 1200px) {
     div.within_dash {
-        margin: 50px 50px 50px 150px;
+        margin: 30px 50px 30px 150px;
     }
 }
 
@@ -73,6 +73,11 @@ div.within_dash {
 
 #newGroup {
   display: none;
+}
+
+#create_newGroup {
+  text-decoration: none;
+  font-size: 20px;
 }
 
 div a:hover, div a:active {
